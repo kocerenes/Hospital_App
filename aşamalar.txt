@@ -1,0 +1,113 @@
+//// TASARIM TARAFI ////
+
+1) SQL server da hasta,doktor,sekreter, department ve randevu tablolarını oluşturdum.
+
+2) c# form uygulamasında, uygulamaya ilk girdiğimizde karsımıza çıkıcak olan giriş
+ekranını tasarladım. (FrmEntries)
+
+3) Hasta giriş panelini tasarladım.(Frm_Patient_Login)
+
+4) Eğer giriş yapmak isteyen hastanın kaydı yoksa kaydolması için gerekli formu
+tasarlayıp oluşturdum. (Frm_PatientEntry)
+
+5) Giriş yapan hastanın karşısına çıkıcak olan hasta panelini oluşturdum. Bu panel 
+içerisinde hastaya ait TC no, Adı soyadı, Geçmiş randevu bilgileri ve aktif randevuları
+bulunucak. Ayrıca hasta bu panel içerisinde randevu alabilicek. Bunların dışında hasta 
+mevcut biilgilerini bu panel içerisindeki LinkLabel aracı ile açılıcak sayfada değiş-
+tirip güncelleyebilicek.
+
+6) Bilgileri güncellemek için Linklabela tıklandığında kullanıcının yönlendirileceği
+paneli oluşturdum.
+
+7) Form uygulamasında doktor giriş panelini oluşturdum.
+
+8) Doktor giriş yaptıktan sonra açılacak olan şahsi sayfasının tasarımını yaptım. Bu
+sayfada doktorun bilgileri, hastasının şikayeti, randevu alan hastaları görüntülene-
+bilecek. Ayrıca hızlı erişim alanında sekreterin yayınladığı duyuruları görmek için,
+bilgilerini  güncellemek için ve çıkış yapmak için erişim sağlayabilicek.
+
+9) doktorun bilgilerini güncelleyeceği sayfayı tasarladım.
+
+10) Duyuruların bulunduğu paneli oluşturdum.
+
+11) Sekreter için giriş paneli oluşturdum.
+
+12) Sekreter giriş yaptıktan sonra açılacak olan sekreter panelinin tasarımı yapıp
+oluşturdum. Bu panel içerisinde;
+- Sekreterin bilgileri,
+- Duyuru yayınlaması için bir panel,
+- Randevu oluşturması ve güncellemesi için bir panel,
+- Doktorları ve bölümlerinin görüntülendiği bir panel,
+- Sisteme doktor eklemek veya değiştirmek için, bölümleri görüntülemek için ve
+ Randevuları görüntülemek için hızlı erişim paneli bulunmaktadır.
+
+13) Sekreterin hızlı erişimi kullanarak ulaşabiliceği doktor ekleme silme güncelleme ve
+mevcut doktorları görüntüleyeceği formu oluşturdum. 
+
+14) Sekreterin hızlı erişimi kullanarak ulaşabileceği bölüm ekleme silme güncelleme ve
+mevcut bölümleri görüntüleyebileceği formu oluşturdum.
+
+--------------------------------------------------------------------------------
+//// KOD TARAFI ////
+
+1) Her Form için SqlConnection tanımlamak yerine, her formda çağırabileceğim
+ SqlConnection sınıfı oluşturdum.
+
+2) Anasayfa formunda (Health Hospital Home Page) kişi durumlarına göre açılacak 
+ olan giriş panellerine yönlendirmeyi yaptım.
+
+A)Hasta giriş paneli
+1) hasta kayıtlı değil ise kayıt olması için açılıcak olan sayfaya yönlendirmeyi yazdım
+2) kayıt işleminde girilen bilgileri veri tabanına kaydetme işlemini yaptım.
+
+B) Hasta Paneli
+1) Giriş yapan hastanın Tc no ve ad soyadını taşıdım.
+2) randevu geçmişi kısmına veritabanından randevu tablosunu çekktim.
+3) Veritabanındaki Bölümleri Comboboxa ekledim.
+4) Randevu panelinde hasta gitmek istediği  bölümü sectiginde o bölüme ait doktorların
+ cmbdoktorda cıkması için kodlarımı yazdım.
+5) veritabanındaki randevu tablosunu datagridviewa aktardım.
+6) Bilgileri Güncelle Linkine tıkladıgında acılacak olan sayfayı acıp varolan bilgileri 
+ gerekli yerlere ekledim.
+7) Değişen bilgileri veri tabanına kaydetmeyi yaptım.
+8) randevu almayı yaptım.
+
+
+C)Sekreter Paneli
+1) giriş yapıcak olan sekreterin tc ve şifresini veri tabanından sorgulatarak giriş
+yapmasını sağladım.
+2) bilgileri kısmına tc ve ad soyadını tasıdım.
+3) datagridviewa veritabanından departments tablosunu cektim.
+4) datagridviewa veritabanından Doctors tablosunu cektim.
+5) bölüm ve doktor comboboxlarına veritabanından verileri çektik.
+6) Veritabanına randevuyu kaydetme işlemini yaptık.
+7) veri tabanımda duyurular için tablo oluşturdum.
+8) Duyuruları veri tabanına kaydtme işlemini yaptım.
+9) secretary_doctorpanele girip doktor ekleme işlemini ve datagridde ki tıkladıgımız
+doktorun verilerini ilgili yerlere cekicek kodları yazdım.
+10) secilen doktoru silmeyi yaptım.
+11) secilen doktorun bilgilerini güncellemeyi yaptım.
+12) Department panelde bölüm eklemeyi silmeyi güncellemeyi yaptım.
+13) randevu panelinde datagride veritabanındaki randevu tablosunu getirdim.
+14) eklediğimiz duyuruları veritabanındaki tablodan, duyurular penceresindeki datgride
+ ekledik.
+
+
+D) Doktor Paneli
+1) Veritabanındaki tc ile şifreyi sorgulatarak giriş yapmasını sağladım.
+2) Giriş yapan doktora ait randevularu datagride çektim.
+3) duyuru paneli butonuna tıklayarak duyurulara hızlı erişim sağladım.
+4) doktorun randevularına tıkladıgında sikayet textinde hastanın sikayetinin cıkmasını
+sağladım.
+5) exit butonuna basarak programdan cıkıs yapmasını sağladım.
+
+
+
+
+
+
+
+
+
+
+

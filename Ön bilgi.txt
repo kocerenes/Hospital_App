@@ -1,0 +1,20 @@
+HASTA
+- Sisteme giriş yapabilicek
+- Kendini sisteme kaydedebilicek
+- Randevu alabilicek
+- Geçmiş randevularını görüntüleyebilicek
+- Bilgilerini düzenleyebilicek
+
+SEKRETER
+- Giriş yapabilicek
+- Hasta kaydedicek
+- Doktor kaydedebilicek
+- Randevu oluşturucak
+- Randevuları görüntülüyebilicek
+- Randevuları Düzenleyebilicek
+- Branş ataması yapıcak
+- Doktor ataması yapıcak
+
+DOKTOR
+- Sisteme giriş yapıcak
+- Randevuları görüntüleyebilecek
